@@ -24,7 +24,7 @@
         <File path="src/vic20_dblscan.vhd" type="file.vhdl" enable="1"/>
         <File path="src/vic20_ps2_if.vhd" type="file.vhdl" enable="1"/>
         <File path="src/vic20_vic.vhd" type="file.vhdl" enable="1"/>
-        <File path="src/Tang_nano_9k_vc20.cst" type="file.cst" enable="1"/>
-        <File path="src/Tang_nano_9k_vc20.sdc" type="file.sdc" enable="1"/>
+        <File path="src/Tang_nano_9k_vic20.cst" type="file.cst" enable="1"/>
+        <File path="src/Tang_nano_9k_vic20.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>
