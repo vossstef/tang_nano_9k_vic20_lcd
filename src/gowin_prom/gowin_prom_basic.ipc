@@ -1,0 +1,15 @@
+[General]
+ipc_version=4
+file=gowin_prom_basic
+module=Gowin_pROM_basic
+target_device=gw1nr9c-004
+type=ram_prom
+version=1.0
+
+[Config]
+DEPTH=8192
+LANG=1
+MEM_FILE=C:\\Users\\vossstef\\Documents\\tang_nano_9k_vc20\\ROM\\basic.mi
+READ=0
+RESET_MODE=true
+WIDTH=8

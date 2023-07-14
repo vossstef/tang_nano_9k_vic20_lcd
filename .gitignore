@@ -1,0 +1,6 @@
+impl/gwsynthesis/**
+impl/temp/**
+impl/pnr/**
+simulation/sim/**
+simulation/transcript
+impl/pnr/*.bin

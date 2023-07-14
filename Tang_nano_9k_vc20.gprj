@@ -1,0 +1,30 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NR-9C" pn="GW1NR-LV9QN88PC6/I5">gw1nr9c-004</Device>
+    <FileList>
+        <File path="src/T65.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T65_ALU.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T65_MCode.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/T65_Pack.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/dac.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_dpb/gowin_dpb.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_prom/gowin_prom_basic.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_prom/gowin_prom_char.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_prom/gowin_prom_kernal.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_prom/gowin_prom_pacman.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_rpll/gowin_rpll.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_sp_1kb/gowin_sp_1kb.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/gowin_sp_2kb/gowin_sp_2kb.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/m6522.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/ps2kbd.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/vic20.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/vic20_dblscan.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/vic20_ps2_if.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/vic20_vic.vhd" type="file.vhdl" enable="1"/>
+        <File path="src/Tang_nano_9k_vc20.cst" type="file.cst" enable="1"/>
+        <File path="src/Tang_nano_9k_vc20.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>
