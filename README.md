@@ -35,9 +35,9 @@ see pin configuration in .cst configuation file
 ## Tang LEDs
 LED's so far unused.
 ## HW circuit considerations
-- PS2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so din't needed exteral ones. 
-- Joystick interface is 3.3V tolerant for usual micro switches. Joystick 5V supply pin has to be left floating !
-- The FPGA pin delivering the Audio PWM to the Amplifier input need a low pass filter. 3K3 series Resistor and 47nF Capacitor to GND.
+- PS2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
+- Joystick interface is 3.3V tolerant. Joystick 5V supply pin has to be left floating !
+- The FPGA pin delivering the Audio PWM to the Amplifier need a low pass filter. 3K3 series Resistor and 47nF Capacitor to GND.
 - Tang Nano 5V output connected to Audio Amplifier and Keyboard supply. Tang 3V3 output to level shifter supply.
 
 **Pinmap Joystick Interface** <br>
