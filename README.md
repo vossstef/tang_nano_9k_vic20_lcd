@@ -13,7 +13,7 @@ Features
 * PS2 Keyboard
 * Joystick
 
-By default cartride ROM will be booted.
+By default cartride ROM will be booted (see push button how to surpress).
 
 *VIC-20 in a FPGA* <br>
 ![pinmap](\.assets/vic-20-tang.png)<br> <br>
@@ -37,7 +37,7 @@ For simpification i used block SRAM resources for all memories (SP, SDP, pROM). 
 see pin configuration in .cst configuation file
 
 ## cartride ROM
-The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM code. I had to remove the first byte in the generated HEX file inidcating the VIC-20 ROM region (0xA0) before providing needed Memory initialization file to the IP Block generator. 
+The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL code. For the ROM image i took had to remove the first byte in the generated HEX file inidcating the VIC-20 ROM region (0xA0) before providing needed Memory initialization file to the IP Block generator. 
 ## HW circuit considerations
 - PS2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
 - Joystick interface is 3.3V tolerant. Joystick 5V supply pin has to be left floating !
@@ -72,7 +72,7 @@ The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM code.
 | 6 | n.c. | - | n.c |
 
 **low pass filter for Audio Amplifier input** <br>
-![pinmap](\.assets/audio_filter.png)<br>
+![pinmap](\.assets/audiofilter.png)<br>
 
 ### BOM
 Tang Nano 9k<br>

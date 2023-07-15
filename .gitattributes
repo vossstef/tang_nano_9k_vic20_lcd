@@ -1,1 +1,9 @@
 *.VHD linguist-language=VHDL
+*.png linguist-vendored=false
+*.exe linguist-vendored=false
+*.cst linguist-vendored=false
+*.sdc linguist-vendored=false
+*.ipc linguist-vendored=false
+*.mod linguist-vendored=false
+*.bin linguist-vendored=false
+*.mi linguist-vendored=false
