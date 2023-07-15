@@ -13,14 +13,14 @@ Features
 * PS2 Keyboard
 * Joystick
 
-By default cartride ROM will be booted (see push button how to surpress).
+By default cartridge ROM will be booted (see push button how to suppress).
 
 *VIC-20 in a FPGA* <br>
 ![pinmap](\.assets/vic-20-tang.png)<br> <br>
 
 ## Tang Push Button utilization
 * S1 push button Reset
-* S2 ROM Cardride ROM disable (keep S2 pressed while power-on or excert a S1 push-button Reset )
+* S2 Cartridge ROM disable (keep S2 pressed while power-on or excert a S1 push-button Reset, release after)
 ## Powering
 Entire prototype circuit with Keyboard and Audio can be powered by Tang USB-C connector from PC or a Power Supply Adapter. 
 ## Synthesis
@@ -32,12 +32,12 @@ Script for compiling the Gowin library, sources and testbench in the simulation 
 For Simulation run execute_simulation.bat (*Windows*) or execute_simulation.sh (*Linux*)
 
 ## GOWIN IP Blocks
-For simpification i used block SRAM resources for all memories (SP, SDP, pROM). In addition rPLL, two CLK divdiers and GSR resource.
+For sake of simplification i used block SRAM resources for all memories (SP, SDP, pROM). In addition rPLL, two CLK divdiers and GSR resource.
 ## Pin mapping 
-see pin configuration in .cst configuation file
+see pin configuration in .cst configuration file
 
 ## cartride ROM
-The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL code. For the ROM image i took had to remove the first byte in the generated HEX file inidcating the VIC-20 ROM region (0xA0) before providing needed Memory initialization file to the IP Block generator. 
+The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL code. For the ROM image i took had to remove the first byte in the generated HEX file indicating the VIC-20 ROM region (0xA0) before providing needed Memory initialization file to the IP Block generator. 
 ## HW circuit considerations
 - PS2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
 - Joystick interface is 3.3V tolerant. Joystick 5V supply pin has to be left floating !
