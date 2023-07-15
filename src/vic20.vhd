@@ -81,10 +81,7 @@ port
   push_reset_n   :in std_logic;
   User_Button_n  :in std_logic;
 
-  joy_up         :in  std_logic;
-  joy_down       :in  std_logic;
-  joy_left       :in  std_logic;
-  joy_right      :in  std_logic;
+  joy            :in  std_logic_vector(3 downto 0); -- 0 up, 1 down, 2 left,  3 right
   joy_fire       :in  std_logic
   );
 end;
@@ -702,9 +699,9 @@ cpu : T65
   via1_pa_in(7) <= via1_pa_out(7);
   via1_pa_in(6) <= cass_sw;
   via1_pa_in(5) <= joy_fire;	
-  via1_pa_in(4) <= joy_down;
-  via1_pa_in(3) <= joy_left;
-  via1_pa_in(2) <= joy_right;
+  via1_pa_in(4) <= joy(2);
+  via1_pa_in(3) <= joy(1);
+  via1_pa_in(2) <= joy(0); -- 0 up, 1 down, 2 left,  3 right
   via1_pa_in(1) <= serial_data_in;
   via1_pa_in(0) <= serial_clk_in;
 
@@ -749,7 +746,7 @@ via2 : M6522
     CLK             => clock_8MHz
     );
 
-  p_keybd_col_in : process(keybd_col_out, keybd_col_oe_l, joy_up)
+  p_keybd_col_in : process(keybd_col_out, keybd_col_oe_l, joy)
   begin
     for i in 0 to 6 loop
       keybd_col_in(i) <= keybd_col_out(i);
@@ -758,8 +755,8 @@ via2 : M6522
     if (keybd_col_oe_l(7) = '0') then
       keybd_col_in(7) <= keybd_col_out(7);
     else
-      keybd_col_in(7) <= joy_up;
-    end if;
+      keybd_col_in(7) <= joy(3); -- 0 up, 1 down, 2 left,  3 right
+end if;
   end process;
   cass_write <= keybd_col_out(3);
 
