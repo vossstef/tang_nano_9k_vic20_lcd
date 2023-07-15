@@ -1,3 +1,4 @@
+* linguist-vendored
 .assets/* linguist-vendored=false
 ROM/* linguist-vendored=false
 *.gprj linguist-vendored=false
