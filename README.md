@@ -1,4 +1,4 @@
-# tang_nano_9k_vc20
+# tang_nano_9k_vic20
 VIC-20 living in a Gowin GW1NR-9 FPGA on a Sipeed Tang Nano 9K board.<br>
 <br>
 **Video output is adapted for a 5" TFT-LCD module 800x480 Type SH500Q01Z **
