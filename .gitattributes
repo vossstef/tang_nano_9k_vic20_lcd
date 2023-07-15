@@ -1,5 +1,6 @@
-*.VHD linguist-language=VHDL
-*.png linguist-vendored=false
+.assets/* linguist-vendored=false
+ROM/* linguist-vendored=false
+*.gprj linguist-vendored=false
 *.exe linguist-vendored=false
 *.cst linguist-vendored=false
 *.sdc linguist-vendored=false
@@ -7,3 +8,4 @@
 *.mod linguist-vendored=false
 *.bin linguist-vendored=false
 *.mi linguist-vendored=false
+
