@@ -1,8 +1,7 @@
-# tang_nano_9k_vic20
-VIC-20 living in a Gowin GW1NR-9 FPGA on a Sipeed Tang Nano 9K board.<br>
+# tang_nano_9k_vic20_lcd
+[VIC-20](https://en.wikipedia.org/wiki/VIC-20) living in a [Gowin GW1NR-9](https://www.gowinsemi.com/en/product/detail/49/) FPGA on a [Sipeed Tang Nano 9k](https://api.dl.sipeed.com/shareURL/TANG/Nano%209K/1_Specification).<br>
 <br>
-**Video output is adapted for a 5" TFT-LCD module 800x480 Type SH500Q01Z **
-[Datasheet](https://dl.sipeed.com/Accessories/LCD/500Q01Z-00%20spec.pdf)
+**Video output is adapted for a 5" TFT-LCD module 800x480 Type [SH500Q01Z](https://dl.sipeed.com/Accessories/LCD/500Q01Z-00%20spec.pdf)**
 
 
 Original VIC-20 core by MikeJ (Mike Johnson) and T65 WoS (Wolfgang Scherr)
@@ -10,7 +9,7 @@ Original VIC-20 core by MikeJ (Mike Johnson) and T65 WoS (Wolfgang Scherr)
 Features
 * TFT-LCD Video Output
 * Speaker Sound
-* PS2 Keyboard
+* PS/2 Keyboard
 * Joystick
 
 By default cartridge ROM will be booted (see push button how to suppress).
@@ -22,7 +21,7 @@ By default cartridge ROM will be booted (see push button how to suppress).
 * S1 push button Reset
 * S2 Cartridge ROM disable (keep S2 pressed while power-on or excert a S1 push-button Reset, release after)
 ## Powering
-Entire prototype circuit with Keyboard and Audio can be powered by Tang USB-C connector from PC or a Power Supply Adapter. 
+Prototype circuit with Keyboard and Audio Amp can be powered by Tang USB-C connector from PC or a Power Supply Adapter. 
 ## Synthesis
 Source code can be synthesized, fitted and programmed with GOWIN IDE Windows or Linux.
 
@@ -32,14 +31,14 @@ Script for compiling the Gowin library, sources and testbench in the simulation 
 For Simulation run execute_simulation.bat (*Windows*) or execute_simulation.sh (*Linux*)
 
 ## GOWIN IP Blocks
-For sake of simplification i used block SRAM resources for all memories (SP, SDP, pROM). In addition rPLL, two CLK divdiers and GSR resource.
+For sake of simplification i use block SRAM resources for all memories (SP, SDP, pROM). In addition rPLL, CLK divdiers and GSR resource.
 ## Pin mapping 
 see pin configuration in .cst configuration file
 
 ## cartride ROM
 The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL code. For the ROM image i took had to remove the first byte in the generated HEX file indicating the VIC-20 ROM region (0xA0) before providing needed Memory initialization file to the IP Block generator. 
 ## HW circuit considerations
-- PS2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
+- PS/2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
 - Joystick interface is 3.3V tolerant. Joystick 5V supply pin has to be left floating !
 - The FPGA pin delivering the Audio PWM to the Amplifier need a low pass filter. 3K3 series Resistor and 47nF Capacitor to GND.
 - Tang Nano 5V output connected to Audio Amplifier and Keyboard supply. Tang 3V3 output to level shifter supply.
@@ -75,16 +74,17 @@ The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL 
 ![pinmap](\.assets/audiofilter.png)<br>
 
 ### BOM
-Tang Nano 9k<br>
-SH500Q01Z LCD-TFT<br>
+
+[Sipeed Tang Nano 9k](https://api.dl.sipeed.com/shareURL/TANG/Nano%209K/1_Specification)<br> 
+[SH500Q01Z LCD-TFT](https://api.dl.sipeed.com/shareURL/Accessories/LCD)<br> 
 D-SUB 9 M connector<br> 
-Commodore/Atari compatible Joystick<br> 
+Commodore/[Atari](https://en.wikipedia.org/wiki/Atari_CX40_joystick) compatible Joystick<br> 
 or alternatively 5D Rocker Joystick navigation button module<br>
 3K3 Resistor<br>
 47nF Ceramics<br>
 Mini PAM8403 Audio Amplifier Module<br>
 8R Speaker<br>
-PS 2 Keyboard<br>
-PS 2 Socket Adapter Module<br>
-2 pcs SN74LVC1G17DBVR level shifter<br>
+PS/2 Keyboard<br>
+PS/2 Socket Adapter Module<br>
+2 pcs [SN74LVC1G17DBVR](http://www.ti.com/document-viewer/SN74LVC1G17/datasheet) level shifter<br>
 Prototype Board<br>
