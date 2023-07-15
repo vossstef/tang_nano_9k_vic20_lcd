@@ -1,5 +1,4 @@
 * linguist-vendored
-*.vhd linguist-vendored=true
 .assets/* linguist-vendored=false
 ROM/* linguist-vendored=false
 *.gprj linguist-vendored=false
@@ -10,3 +9,11 @@ ROM/* linguist-vendored=false
 *.mod linguist-vendored=false
 *.bin linguist-vendored=false
 *.mi linguist-vendored=false
+**/verilog/**/*.v linguist-language=Verilog
+**/verilog/**/*.vh linguist-language=Verilog
+**/system_verilog/**/*.v linguist-language=SystemVerilog
+**/system_verilog/**/*.sv linguist-language=SystemVerilog
+**/system_verilog/**/*.vh linguist-language=SystemVerilog
+**/vhdl/**/*.vhdl linguist-language=VHDL
+**/vhdl/**/*.vhd linguist-language=VHDL
+**/vhdl/**/*.vh linguist-language=VHDL
