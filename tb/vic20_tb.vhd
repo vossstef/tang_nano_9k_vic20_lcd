@@ -76,12 +76,9 @@ architecture vic20_tb of vic20_tb is
   signal push_reset_n     : std_logic;
   signal User_Button_n    : std_logic;
 
-  signal joy_up           :  std_logic;
-  signal joy_down         :  std_logic;
-  signal joy_left         :  std_logic;
-  signal joy_right        :  std_logic;
-  signal joy_fire         :  std_logic;
- 
+  signal joy             : std_logic_vector(3 downto 0);
+  signal joy_fire        : std_logic;
+
   component VIC20
   port 
   (
@@ -108,11 +105,8 @@ architecture vic20_tb of vic20_tb is
   push_reset_n      :in std_logic;
   User_Button_n     :in std_logic;
   
-  joy_up            :in  std_logic;
-  joy_down          :in  std_logic;
-  joy_left          :in  std_logic;
-  joy_right         :in  std_logic;
-  joy_fire          :in  std_logic
+  joy               :in std_logic_vector(3 downto 0);
+  joy_fire          :in std_logic
   );
   end component;
 
@@ -141,10 +135,7 @@ begin
       push_reset_n    => push_reset_n,
       User_Button_n   => User_Button_n,
 
-      joy_up          => joy_up,
-      joy_down        => joy_down,
-      joy_left        => joy_left,
-      joy_right       => joy_right,
+      joy             => joy,
       joy_fire        => joy_fire
     );
 
@@ -167,10 +158,7 @@ begin
 
   User_Button_n <= '1';
 
-  joy_up        <= '1';
-  joy_down      <= '1';
-  joy_left      <= '1';
-  joy_right     <= '1';
+  joy           <= b"0000";
   joy_fire      <= '1';
 
   ps2_clk       <= '1';
