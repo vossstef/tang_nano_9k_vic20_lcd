@@ -1,10 +1,11 @@
---Copyright (C)2014-2022 Gowin Semiconductor Corporation.
+--Copyright (C)2014-2023 Gowin Semiconductor Corporation.
 --All rights reserved.
 --File Title: IP file
---GOWIN Version: V1.9.8.09 Education
+--GOWIN Version: V1.9.8.11 Education
 --Part Number: GW1NR-LV9QN88PC6/I5
---Device: GW1NR-9C
---Created Time: Mon Jan 30 19:09:03 2023
+--Device: GW1NR-9
+--Device Version: C
+--Created Time: Sat Aug 05 22:34:30 2023
 
 library IEEE;
 use IEEE.std_logic_1164.all;
@@ -12,14 +13,15 @@ use IEEE.std_logic_1164.all;
 entity Gowin_rPLL is
     port (
         clkout: out std_logic;
+        lock: out std_logic;
         clkoutd: out std_logic;
+        reset: in std_logic;
         clkin: in std_logic
     );
 end Gowin_rPLL;
 
 architecture Behavioral of Gowin_rPLL is
 
-    signal lock_o: std_logic;
     signal clkoutp_o: std_logic;
     signal clkoutd3_o: std_logic;
     signal gw_gnd: std_logic;
@@ -33,14 +35,14 @@ architecture Behavioral of Gowin_rPLL is
     --component declaration
     component rPLL
         generic (
-            FCLKIN: in string := "27.0";
+            FCLKIN: in string := "100.0";
             DEVICE: in string := "GW1N-4";
             DYN_IDIV_SEL: in string := "false";
-            IDIV_SEL: in integer := 4;
+            IDIV_SEL: in integer := 0;
             DYN_FBDIV_SEL: in string := "false";
-            FBDIV_SEL: in integer := 23;
+            FBDIV_SEL: in integer := 0;
             DYN_ODIV_SEL: in string := "false";
-            ODIV_SEL: in integer := 4;
+            ODIV_SEL: in integer := 8;
             PSDA_SEL: in string := "0000";
             DYN_DA_EN: in string := "false";
             DUTYDA_SEL: in string := "1000";
@@ -54,7 +56,7 @@ architecture Behavioral of Gowin_rPLL is
             CLKOUTP_BYPASS: in string := "false";
             CLKOUTD_BYPASS: in string := "false";
             CLKOUTD_SRC: in string := "CLKOUT";
-            DYN_SDIV_SEL: in integer := 4
+            DYN_SDIV_SEL: in integer := 2
         );
         port (
             CLKOUT: out std_logic;
@@ -112,11 +114,11 @@ begin
         )
         port map (
             CLKOUT => clkout,
-            LOCK => lock_o,
+            LOCK => lock,
             CLKOUTP => clkoutp_o,
             CLKOUTD => clkoutd,
             CLKOUTD3 => clkoutd3_o,
-            RESET => gw_gnd,
+            RESET => reset,
             RESET_P => gw_gnd,
             CLKIN => clkin,
             CLKFB => gw_gnd,

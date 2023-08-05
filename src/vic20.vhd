@@ -89,14 +89,14 @@ end;
 architecture RTL of VIC20 is
 
   -- default
-   constant K_OFFSET : std_logic_vector (4 downto 0) := "10000"; -- h position of screen to centre on your telly
+    constant K_OFFSET : std_logic_vector (4 downto 0) := "10000"; -- h position of screen to centre on your telly
 
     signal clock_35MHz        : std_logic;
-    signal clock_div        : std_logic_vector(2 downto 0);
     signal clock_8MHz         : std_logic;
     signal ena_4              : std_logic;
     signal auto_reset         : std_logic;
-    
+    signal locked             : std_logic;
+
     -- cpu
     signal c_ena              : std_logic;
     signal c_addr             : std_logic_vector(23 downto 0);
@@ -215,9 +215,11 @@ architecture RTL of VIC20 is
 
    component Gowin_rPLL
    port (
-         clkout: out std_logic;
-         clkoutd: out std_logic;
-         clkin: in std_logic
+        clkout: out std_logic;
+        lock: out std_logic;
+        clkoutd: out std_logic;
+        reset: in std_logic;
+        clkin: in std_logic
      );
    end component;
 
@@ -483,8 +485,11 @@ begin
 
 clock_generator: Gowin_rPLL
 port map (
+    clkout  => open,
     clkoutd => clock_35MHz,
-    clkin => I_CLK_REF
+    clkin   => I_CLK_REF,
+    lock    => locked,
+    reset   => not push_reset_n
 );
 
 clock_divider0: CLKDIV
@@ -496,7 +501,7 @@ port map (
     CALIB  => '0',
     clkout => clock_8MHz,
     hclkin => clock_35MHz,
-    resetn => auto_reset
+    resetn => locked
     );
 
 clock_divider1: CLKDIV
@@ -508,7 +513,7 @@ port map (
     CALIB  => '0',
     clkout => ena_4,
     hclkin => clock_8MHz,
-    resetn => auto_reset
+    resetn => locked
     );
 
   LED(0) <= '1';

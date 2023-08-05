@@ -23,14 +23,18 @@ if ![file exists "./sim.mpf"] {
  project addfile "./../../src/gowin_prom/gowin_prom_pacman.vhd"
  project addfile "./../../src/T65.vhd"
  project addfile "./../../tb/vic20_tb.vhd"
- project addfile "./../../tb/prim_sim.vhd"
 
  if [file exists work] {
     vdel -lib work -all
    }
 vlib work
+vlib gw1n
+
+vcom -work gw1n -2008 -autoorder -explicit \
+"./../../tb/prim_sim.vhd" \
+"./../../tb/prim_syn.vhd"
+
 vcom -work work -2008 -autoorder -explicit \
- "./../../tb/prim_sim.vhd" \
  "./../../tb/vic20_tb.vhd" \
  "./../../src/gowin_prom/gowin_prom_char.vhd" \
  "./../../src/gowin_sp_1kb/gowin_sp_1kb.vhd" \
@@ -56,7 +60,7 @@ vcom -work work -2008 -autoorder -explicit \
  project compileoutofdate
 }
 
-vsim -voptargs=+acc -gui work.vic20_tb
+vsim -voptargs=+acc -gui -L gw1n work.vic20_tb
 view wave
 
 add wave -divider "Input Signals"

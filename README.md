@@ -40,7 +40,7 @@ The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL 
 ## HW circuit considerations
 - PS/2 keyboard has to be connected to 3.3V tolerant FPGA via level shifter to avoid damage of inputs ! Use e.g. 2 pcs SN74LVC1G17DBVR 5V to 3V3 level shifter. My Keyboard has internal pull-up resistors to 5V for Clock and Data Signals so didn't needed external ones. 
 - Joystick interface is 3.3V tolerant. Joystick 5V supply pin has to be left floating !
-- The FPGA pin delivering SigmaDelta Audio signal to the Amplifier need a low pass filter. 3K3 series Resistor and 47nF Capacitor to GND.
+- The FPGA pin delivering SigmaDelta Audio signal to the Amplifier need a low pass filter. 3K3 series Resistor and 4n7 Capacitor to GND.
 - Tang Nano 5V output connected to Audio Amplifier and Keyboard supply. Tang 3V3 output to level shifter supply.
 
 **Pinmap D-SUB 9 Joystick Interface** <br>
@@ -58,10 +58,10 @@ The bin2mi tool can be used to generate from a 8192 byte Game ROM new pROM VHDL 
 | 8 | J6 23 | - | GND |
 | 9 | n.c. | n.c. | POT X |
 
-**Pinmap PS2 Interface** <br>
+**Pinmap PS/2 Interface** <br>
 ![pinmap](\.assets/ps2conn.png)
 
-| PS2 pin | Tang Nano pin | FPGA pin | PS2 Function |
+| PS/2 pin | Tang Nano pin | FPGA pin | PS2 Function |
 | ----------- | ---   | --------  | ----- |
 | 1 | J6 10  | 77   | DATA  |
 | 2 | n.c.  | - | n.c. |
@@ -81,7 +81,7 @@ D-SUB 9 M connector<br>
 Commodore/[Atari](https://en.wikipedia.org/wiki/Atari_CX40_joystick) compatible Joystick<br> 
 or alternatively 5D Rocker Joystick navigation button module<br>
 3K3 Resistor<br>
-47nF Ceramics<br>
+4n7 Ceramics<br>
 Mini PAM8403 Audio Amplifier Module<br>
 8R Speaker<br>
 PS/2 Keyboard<br>

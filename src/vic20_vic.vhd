@@ -237,6 +237,7 @@ architecture RTL of VIC20_VIC is
   signal audio_mul_out : std_logic_vector(7 downto 0);
 
 begin
+  O_COMP_SYNC_L <= '0';
 
   p_strobe_gen : process(hcnt)
   begin
