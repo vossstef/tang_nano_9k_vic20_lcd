@@ -1,3 +1,7 @@
+This repo is superseded by VIC20Nano https://github.com/vossstef/VIC20Nano.git      
+
+
+
 # tang_nano_9k_vic20_lcd
 [VIC20](https://en.wikipedia.org/wiki/VIC-20) living in a [Gowin GW1NR-9](https://www.gowinsemi.com/en/product/detail/49/) FPGA on a [Sipeed Tang Nano 9k](https://api.dl.sipeed.com/shareURL/TANG/Nano%209K/1_Specification).<br>
 <br>
